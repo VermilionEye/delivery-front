@@ -1,11 +1,11 @@
 import {AccountSidebarProps} from "./AccountSidebar.props";
 import cn from "classnames";
 import styles from "./AccountSidebar.module.css";
-import {Logo} from "../../../eco-market-front/components/Logo/Logo";
-import {H} from "../../../eco-market-front/components/Htag/Htag";
+import {Logo} from "../../../delivery-front/components/Logo/Logo";
+import {H} from "../../../delivery-front/components/Htag/Htag";
 import Link from "next/link";
-import {Button} from "../../../eco-market-front/components/Button/Button";
-import {AccountSidebarButton} from "../../../eco-market-front/components/AccountSidebarButton/AccountSidebarButton";
+import {Button} from "../../../delivery-front/components/Button/Button";
+import {AccountSidebarButton} from "../../../delivery-front/components/AccountSidebarButton/AccountSidebarButton";
 
 export const AccountSidebar = ({
                            className,

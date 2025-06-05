@@ -1,9 +1,9 @@
 'use client'
 
-import {H} from "../../../eco-market-front/components/Htag/Htag";
-import {Button} from "../../../eco-market-front/components/Button/Button";
+import {H} from "../../../delivery-front/components/Htag/Htag";
+import {Button} from "../../../delivery-front/components/Button/Button";
 import styles from "../styles/page.module.css"
-import {CardRow} from "../../../eco-market-front/components/CardRow/CardRow";
+import {CardRow} from "../../../delivery-front/components/CardRow/CardRow";
 import {useGetProductsQuery} from "../store/api/api";
 import {useEffect} from "react";
 import {withMainLayout} from "../layout/MainLayout/MainLayout";

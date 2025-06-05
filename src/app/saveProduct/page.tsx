@@ -1,8 +1,8 @@
 'use client'
 import styles from "../../styles/saveProduct.module.css"
-import {H} from "../../../../eco-market-front/components/Htag/Htag";
-import {Input} from "../../../../eco-market-front/components/Input/Input";
-import {Button} from "../../../../eco-market-front/components/Button/Button";
+import {H} from "../../../../delivery-front/components/Htag/Htag";
+import {Input} from "../../../../delivery-front/components/Input/Input";
+import {Button} from "../../../../delivery-front/components/Button/Button";
 import {useEffect, useRef, useState} from "react";
 
 export default function SaveProduct() {

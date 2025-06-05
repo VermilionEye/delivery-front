@@ -1,8 +1,8 @@
 'use client'
 import styles from "../../styles/login.module.css"
-import {Input} from "../../../../eco-market-front/components/Input/Input";
-import {H} from "../../../../eco-market-front/components/Htag/Htag";
-import {Button} from "../../../../eco-market-front/components/Button/Button";
+import {Input} from "../../../../delivery-front/components/Input/Input";
+import {H} from "../../../../delivery-front/components/Htag/Htag";
+import {Button} from "../../../../delivery-front/components/Button/Button";
 import {useEffect, useState} from "react";
 import Link from "next/link";
 

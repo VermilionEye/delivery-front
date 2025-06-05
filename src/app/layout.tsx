@@ -3,7 +3,7 @@ import "../styles/globals.css";
 import React from "react";
 import {Header} from "../../templates/Header/Header";
 import {Footer} from "../../templates/Footer/Footer";
-import {ReduxProvider} from "../../../eco-market-front/components/ReduxProvider/ReduxProvider";
+import {ReduxProvider} from "../../../delivery-front/components/ReduxProvider/ReduxProvider";
 
 export const metadata: Metadata = {
     title: "EcoGrocery",
