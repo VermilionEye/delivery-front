@@ -11,7 +11,7 @@ interface Order {
         id: number;
     };
     cost: number;
-    date: string;
+    date: Date;
     orderProducts: Array<{
         product: {
             title: string;
@@ -20,10 +20,23 @@ interface Order {
     }>;
 }
 
+interface OrderProduct {
+    product: {
+        title: string;
+    };
+    quantity: number;
+}
+
 const Page: React.FC = () => {
     const {data, isLoading, error} = useGetAllOrdersQuery();
 
-    console.log(data)
+    if (isLoading) {
+        return <div>Loading...</div>;
+    }
+
+    if (error) {
+        return <div>Error loading orders</div>;
+    }
 
     return (
         <div className={styles.page}>
@@ -42,14 +55,14 @@ const Page: React.FC = () => {
                     </tr>
                     {data?.map((order: Order) => (
                         <tr key={order.id}>
-                            <th><H type={"body"} size={"small"}>{order?.id}</H></th>
-                            <th><H type={"body"} size={"small"}>{order?.user.id}</H></th>
-                            <th><H type={"body"} size={"small"}>{order?.cost}</H></th>
-                            <th><H type={"body"} size={"small"}>{String(order?.date)}</H></th>
+                            <th><H type={"body"} size={"small"}>{order.id}</H></th>
+                            <th><H type={"body"} size={"small"}>{order.user.id}</H></th>
+                            <th><H type={"body"} size={"small"}>{order.cost}</H></th>
+                            <th><H type={"body"} size={"small"}>{order.date.toLocaleDateString()}</H></th>
                             <th><H type={"body"} size={"small"}>
-                                {order?.orderProducts.map((product) => (
+                                {order.orderProducts.map((product: OrderProduct) => (
                                     <React.Fragment key={product.product.title}>
-                                        {product?.product.title} x{product?.quantity}
+                                        {product.product.title} x{product.quantity}
                                         <br/>
                                     </React.Fragment>
                                 ))}
@@ -63,4 +76,4 @@ const Page: React.FC = () => {
     );
 }
 
-export default withAdminLayout(Page)
+export default withAdminLayout(Page);

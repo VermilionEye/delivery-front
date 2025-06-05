@@ -1,37 +1,58 @@
 'use client'
+import React from 'react';
 import styles from "../../styles/saveProduct.module.css"
 import {H} from "../../../components/Htag/Htag";
 import {Input} from "../../../components/Input/Input";
 import {Button} from "../../../components/Button/Button";
 import {useEffect, useRef, useState} from "react";
 
-export default function SaveProduct() {
+interface ProductFormData {
+    category: string;
+    title: string;
+    description: string;
+    country: string;
+    price: number;
+    amount: number;
+    calories: number;
+    fats: number;
+    carbohydrates: number;
+    cellulose: number;
+    proteins: number;
+    image: string;
+}
 
+interface ProductResponse {
+    message: string;
+}
+
+type InputState = "default" | "error";
+
+const SaveProduct: React.FC = () => {
     const fileInputRef = useRef<HTMLInputElement>(null);
 
-    const [image, setImage] = useState("");
-    const [category, setCategory] = useState("fruit");
-    const [title, setTitle] = useState("");
-    const [description, setDescription] = useState("");
-    const [country, setCountry] = useState("");
-    const [price, setPrice] = useState(0);
-    const [amount, setAmount] = useState(0);
-    const [titleState, setTitleState] = useState("default");
-    const [descState, setDescState] = useState("default");
-    const [countryState, setCountryState] = useState("default");
-    const [amountState, setAmountState] = useState("default");
-    const [priceState, setPriceState] = useState("default");
-    const [imageState, setImageState] = useState("default");
-    const [calories, setCalories] = useState(0);
-    const [caloriesState, setCaloriesState] = useState("default");
-    const [fats, setFats] = useState(0);
-    const [fatsState, setFatsState] = useState("default");
-    const [carbohydrates, setCarbohydrates] = useState(0);
-    const [carbohydratesState, setCarbohydratesState] = useState("default");
-    const [cellulose, setCellulose] = useState(0);
-    const [celluloseState, setCelluloseState] = useState("default");
-    const [proteins, setProteins] = useState(0);
-    const [proteinsState, setProteinsState] = useState("default");
+    const [image, setImage] = useState<string>("");
+    const [category, setCategory] = useState<string>("fruit");
+    const [title, setTitle] = useState<string>("");
+    const [description, setDescription] = useState<string>("");
+    const [country, setCountry] = useState<string>("");
+    const [price, setPrice] = useState<number>(0);
+    const [amount, setAmount] = useState<number>(0);
+    const [titleState, setTitleState] = useState<InputState>("default");
+    const [descState, setDescState] = useState<InputState>("default");
+    const [countryState, setCountryState] = useState<InputState>("default");
+    const [amountState, setAmountState] = useState<InputState>("default");
+    const [priceState, setPriceState] = useState<InputState>("default");
+    const [imageState, setImageState] = useState<InputState>("default");
+    const [calories, setCalories] = useState<number>(0);
+    const [caloriesState, setCaloriesState] = useState<InputState>("default");
+    const [fats, setFats] = useState<number>(0);
+    const [fatsState, setFatsState] = useState<InputState>("default");
+    const [carbohydrates, setCarbohydrates] = useState<number>(0);
+    const [carbohydratesState, setCarbohydratesState] = useState<InputState>("default");
+    const [cellulose, setCellulose] = useState<number>(0);
+    const [celluloseState, setCelluloseState] = useState<InputState>("default");
+    const [proteins, setProteins] = useState<number>(0);
+    const [proteinsState, setProteinsState] = useState<InputState>("default");
 
     const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setTitle(e.target.value);
@@ -158,8 +179,7 @@ export default function SaveProduct() {
         }
     }, [title, description, country, price, amount, calories, fats, proteins, carbohydrates, cellulose])
 
-
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
         const formData = new FormData();
         formData.append("category", category);
         formData.append("title", title);
@@ -174,25 +194,22 @@ export default function SaveProduct() {
         formData.append("proteins", String(proteins));
         formData.append("image", String(image.substring(image.indexOf('/9'))));
 
-        fetch("http://localhost:8808/product/create", {
-            method: "POST",
-            body: formData,
-        })
-            .then((response) => response.json())
-            .then((data) => {
-                window.location.href = "/"
-            })
-            .catch((error) => {
-                console.error("Ошибка:", error);
+        try {
+            const response = await fetch("http://localhost:8808/product/create", {
+                method: "POST",
+                body: formData,
             });
+            const data: ProductResponse = await response.json();
+            window.location.href = "/";
+        } catch (error) {
+            console.error("Ошибка:", error);
+        }
     };
 
-
-    return <>
+    return (
         <div className={styles.page}>
             <H type={"h5"} weight={400}>Добавьте новый продукт</H>
-            <select className={styles.select} value={category}
-                    onChange={handleCategoryChange}>
+            <select className={styles.select} value={category} onChange={handleCategoryChange}>
                 <option value={"fruit"}>Фрукты</option>
                 <option value={"vegetable"}>Овощи</option>
                 <option value={"meat"}>Мясо</option>
@@ -248,6 +265,14 @@ export default function SaveProduct() {
                 onChange={handleCaloriesChange}
             />
             <Input
+                name="fats"
+                state={fatsState}
+                placeholder="Жиры"
+                type="number"
+                value={fats}
+                onChange={handleFatsChange}
+            />
+            <Input
                 name="carbohydrates"
                 state={carbohydratesState}
                 placeholder="Углеводы"
@@ -264,14 +289,6 @@ export default function SaveProduct() {
                 onChange={handleCelluloseChange}
             />
             <Input
-                name="fats"
-                state={fatsState}
-                placeholder="Жиры"
-                type="number"
-                value={fats}
-                onChange={handleFatsChange}
-            />
-            <Input
                 name="proteins"
                 state={proteinsState}
                 placeholder="Белки"
@@ -279,15 +296,16 @@ export default function SaveProduct() {
                 value={proteins}
                 onChange={handleProteinsChange}
             />
-            <Input
-                name="image"
-                state={imageState}
-                placeholder="Картинка товара"
-                type="file"
+            <input
                 ref={fileInputRef}
+                type="file"
+                accept="image/*"
                 onChange={handleImageChange}
+                className={styles.fileInput}
             />
-            <Button type="fill" onClick={handleSubmit}>Опубликовать товар</Button>
+            <Button type={"fill"} onClick={handleSubmit}>Сохранить</Button>
         </div>
-    </>
+    );
 }
+
+export default SaveProduct;

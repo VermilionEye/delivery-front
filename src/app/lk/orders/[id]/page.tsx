@@ -1,10 +1,23 @@
+'use client'
+
+import React from 'react';
 import {withAccountLayout} from "../../../../layout/AccountLayout/AccountLayout";
 import {OrderPage} from "../../../../../components/OrderPage/OrderPage";
 
-function Page({params}: { params: { id: number } }) {
-    return (<>
-        <OrderPage orderId={params.id}/>
-    </>);
+interface PageProps {
+    params: {
+        id: string;
+    };
 }
 
-export default withAccountLayout(Page)
+interface OrderPageProps {
+    orderId: string;
+}
+
+const Page: React.FC<PageProps> = ({params}) => {
+    return (
+        <OrderPage orderId={params.id}/>
+    );
+}
+
+export default withAccountLayout(Page);

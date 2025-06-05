@@ -1,15 +1,38 @@
 'use client'
 
+import React from 'react';
 import styles from "../styles/page.module.css";
 import {Button} from "../../components/Button/Button";
 import {H} from "../../components/Htag/Htag";
 import {CardRow} from "../../components/CardRow/CardRow";
 import {useGetProductsQuery} from "../store/api/api";
-import {useEffect} from "react";
 import {withMainLayout} from "../layout/MainLayout/MainLayout";
 
+interface Product {
+    id: number;
+    title: string;
+    description: string;
+    price: number;
+    amount: number;
+    category: string;
+    calories: number;
+    fats: number;
+    proteins: number;
+    carbohydrates: number;
+    cellulose: number;
+}
 
-const Products = [
+interface Category {
+    category: string;
+    type: string;
+}
+
+interface CardRowProps {
+    type: string;
+    data: Product[];
+}
+
+const Products: Category[] = [
     {category: "Фрукты", type: "fruit"},
     {category: "Овощи", type: "vegetable"},
     {category: "Мясо", type: "meat"},
@@ -17,10 +40,16 @@ const Products = [
     {category: "Хлебные изделия", type: "bread"},
 ];
 
-
-function Home() {
-
+const Home: React.FC = () => {
     const {data, isLoading, error} = useGetProductsQuery();
+
+    if (isLoading) {
+        return <div>Loading...</div>;
+    }
+
+    if (error) {
+        return <div>Error loading products</div>;
+    }
 
     return (
         <>
@@ -80,9 +109,7 @@ function Home() {
                 {Products.map((product) => (
                     <div key={product.category} className={styles.catalogCategory}>
                         <H type={"h5"}>{product.category}</H>
-                        <CardRow type={product.type}
-                            // @ts-ignore
-                                 data={data}/>
+                        <CardRow type={product.type} data={data as Product[]}/>
                     </div>
                 ))}
             </div>
@@ -90,4 +117,4 @@ function Home() {
     );
 }
 
-export default withMainLayout(Home)
+export default withMainLayout(Home);

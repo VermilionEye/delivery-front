@@ -1,5 +1,6 @@
 'use client'
 
+import React from 'react';
 import {withAccountLayout} from "../../../layout/AccountLayout/AccountLayout";
 import styles from "../../../styles/settings.module.css"
 import {H} from "../../../../components/Htag/Htag";
@@ -8,11 +9,17 @@ import {useGetCurrentUserQuery} from "../../../store/api/user.api";
 import {Button} from "../../../../components/Button/Button";
 import {useEffect, useState} from "react";
 
+interface User {
+    id: number;
+    email: string;
+    password: string;
+    username: string;
+}
+
 const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
 const passwordRegex: RegExp = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
-function Page() {
-
+const Page: React.FC = () => {
     const {data: user} = useGetCurrentUserQuery();
 
     const [email, setEmail] = useState("");
@@ -21,6 +28,7 @@ function Page() {
     const [emailState, setEmailState] = useState("default");
     const [passwordState, setPasswordState] = useState("default");
     const [usernameState, setUsernameState] = useState("default");
+
     useEffect(() => {
         if (username === "" && user?.username === "") {
             setUsernameState("error");
