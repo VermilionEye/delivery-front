@@ -1,16 +1,31 @@
 'use client'
+import React from 'react';
 import styles from "../../../styles/users.module.css";
 import {H} from "../../../../components/Htag/Htag";
 import {withAdminLayout} from "../../../layout/AdminLayout/AdminLayout";
 import {useGetAllOrdersQuery} from "../../../store/api/admin.api";
 
-function Page() {
+interface Order {
+    id: number;
+    user: {
+        id: number;
+    };
+    cost: number;
+    date: string;
+    orderProducts: Array<{
+        product: {
+            title: string;
+        };
+        quantity: number;
+    }>;
+}
 
+const Page: React.FC = () => {
     const {data, isLoading, error} = useGetAllOrdersQuery();
 
     console.log(data)
 
-    return <>
+    return (
         <div className={styles.page}>
             <div className={styles.adminBlock}>
                 <div className={styles.topTable}>
@@ -25,7 +40,7 @@ function Page() {
                         <th><H type={"body"} size={"small"}>ДАТА</H></th>
                         <th><H type={"body"} size={"small"}>ПРОДУКТЫ</H></th>
                     </tr>
-                    {data?.map((order) => (
+                    {data?.map((order: Order) => (
                         <tr key={order.id}>
                             <th><H type={"body"} size={"small"}>{order?.id}</H></th>
                             <th><H type={"body"} size={"small"}>{order?.user.id}</H></th>
@@ -33,10 +48,10 @@ function Page() {
                             <th><H type={"body"} size={"small"}>{String(order?.date)}</H></th>
                             <th><H type={"body"} size={"small"}>
                                 {order?.orderProducts.map((product) => (
-                                    <>
+                                    <React.Fragment key={product.product.title}>
                                         {product?.product.title} x{product?.quantity}
                                         <br/>
-                                    </>
+                                    </React.Fragment>
                                 ))}
                             </H></th>
                         </tr>
@@ -45,7 +60,7 @@ function Page() {
                 </table>
             </div>
         </div>
-    </>
+    );
 }
 
 export default withAdminLayout(Page)
