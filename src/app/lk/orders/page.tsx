@@ -63,5 +63,3 @@ const Page: React.FC = () => {
         </div>
     );
 }
-
-export default withAccountLayout(Page)

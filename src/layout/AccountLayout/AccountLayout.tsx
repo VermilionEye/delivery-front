@@ -20,10 +20,10 @@ const AccountLayout = ({children}: AccountLayoutProps): JSX.Element => {
     );
 };
 
-export const withAccountLayout = <T extends Record<string, unknown>>(
-    Component: FunctionComponent<T>
+export const withAccountLayout = <P extends object>(
+    Component: FunctionComponent<P>
 ) => {
-    return function withAccountLayoutComponent(props: T): JSX.Element {
+    return function withAccountLayoutComponent(props: P): JSX.Element {
         return (
             <AccountLayout>
                 <Component {...props} />
