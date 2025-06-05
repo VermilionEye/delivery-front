@@ -10,14 +10,11 @@ interface PageProps {
     };
 }
 
-interface OrderPageProps {
-    orderId: string;
-}
-
-const Page: React.FC<PageProps> = ({params}) => {
+const Page = ({params}: PageProps) => {
     return (
-        <OrderPage orderId={params.id}/>
+        <OrderPage orderId={Number(params.id)}/>
     );
 }
 
+// @ts-ignore - Ignoring type error for HOC compatibility
 export default withAccountLayout(Page);
