@@ -51,9 +51,6 @@ const Page: React.FC = () => {
                                 <th><H type={"body"} size={"small"}>ДАТА</H></th>
                                 <th><H type={"body"} size={"small"}>СТОИМОСТЬ</H></th>
                             </tr>
-                            {orders?.map((order: Order) => (
-                                <OrderPreview order={order} key={order.id}/>
-                            ))}
                             </tbody>
                         </table>
                     </> :

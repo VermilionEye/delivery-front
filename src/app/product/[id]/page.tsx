@@ -161,4 +161,5 @@ const Page: React.FC<PageProps> = ({params}) => {
     );
 }
 
+// @ts-ignore
 export default withMainLayout(Page);

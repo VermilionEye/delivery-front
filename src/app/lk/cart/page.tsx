@@ -82,9 +82,6 @@ const Page: React.FC = () => {
                                 <th><H type={"body"} size={"small"}>КОЛИЧЕСТВО</H></th>
                                 <th><H type={"body"} size={"small"}>ИТОГО</H></th>
                             </tr>
-                            {products?.map((product: Product, index: number) => (
-                                <CartPreview product={product} index={index} key={product.id}/>
-                            ))}
                             </tbody>
                         </table>
                         <table className={styles.payment}>

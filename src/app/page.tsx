@@ -109,7 +109,6 @@ const Home: React.FC = () => {
                 {Products.map((product) => (
                     <div key={product.category} className={styles.catalogCategory}>
                         <H type={"h5"}>{product.category}</H>
-                        <CardRow type={product.type} data={data as Product[]}/>
                     </div>
                 ))}
             </div>
