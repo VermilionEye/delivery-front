@@ -1,9 +1,9 @@
 'use client'
 
-import {H} from "../../../delivery-front/components/Htag/Htag";
-import {Button} from "../../../delivery-front/components/Button/Button";
-import styles from "../styles/page.module.css"
-import {CardRow} from "../../../delivery-front/components/CardRow/CardRow";
+import styles from "../styles/page.module.css";
+import {Button} from "../../components/Button/Button";
+import {H} from "../../components/Htag/Htag";
+import {CardRow} from "../../components/CardRow/CardRow";
 import {useGetProductsQuery} from "../store/api/api";
 import {useEffect} from "react";
 import {withMainLayout} from "../layout/MainLayout/MainLayout";

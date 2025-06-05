@@ -4,7 +4,7 @@ import styles from "./AccountSidebar.module.css";
 import {Logo} from "../../../delivery-front/components/Logo/Logo";
 import {H} from "../../../delivery-front/components/Htag/Htag";
 import Link from "next/link";
-import {Button} from "../../../delivery-front/components/Button/Button";
+import {Button} from "../../../../delivery-front/components/Button/Button";
 import {AccountSidebarButton} from "../../../delivery-front/components/AccountSidebarButton/AccountSidebarButton";
 
 export const AccountSidebar = ({
