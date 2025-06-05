@@ -1,14 +1,14 @@
 'use client'
 
 import styles from "../../../styles/favourites.module.css";
-import {H} from "../../../../../eco-market-front/components/Htag/Htag";
+import {Button} from "../../../../components/Button/Button";
+import {H} from "../../../../components/Htag/Htag";
 import cn from "classnames";
-import {CartPreview} from "../../../../../eco-market-front/components/CartPreview/CartPreview";
-import {Button} from "../../../../../eco-market-front/components/Button/Button";
+import {CartPreview} from "../../../../components/CartPreview/CartPreview";
 import Link from "next/link";
 import {useSelector} from "react-redux";
 import {RootState} from "../../../store/store";
-import {FavPreview} from "../../../../../eco-market-front/components/FavPreview/FavPreview";
+import {FavPreview} from "../../../../components/FavPreview/FavPreview";
 import {withAccountLayout} from "../../../layout/AccountLayout/AccountLayout";
 
 function Page(){
