@@ -2,10 +2,10 @@
 
 import {withAccountLayout} from "../../../layout/AccountLayout/AccountLayout";
 import styles from "../../../styles/settings.module.css"
-import {H} from "../../../../../eco-market-front/components/Htag/Htag";
-import {Input} from "../../../../../eco-market-front/components/Input/Input";
+import {H} from "../../../../components/Htag/Htag";
+import {Input} from "../../../../components/Input/Input";
 import {useGetCurrentUserQuery} from "../../../store/api/user.api";
-import {Button} from "../../../../../eco-market-front/components/Button/Button";
+import {Button} from "../../../../components/Button/Button";
 import {useEffect, useState} from "react";
 
 const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;

@@ -3,13 +3,13 @@ import styles from "../../../styles/orders.module.css"
 import {withAccountLayout} from "../../../layout/AccountLayout/AccountLayout";
 import {useGetCurrentUserQuery} from "../../../store/api/user.api";
 import {useGetUserOrdersQuery} from "../../../store/api/order.api";
-import {H} from "../../../../../eco-market-front/components/Htag/Htag";
+import {H} from "../../../../components/Htag/Htag";
 import cn from "classnames";
-import {FavPreview} from "../../../../../eco-market-front/components/FavPreview/FavPreview";
+import {FavPreview} from "../../../../components/FavPreview/FavPreview";
 import Link from "next/link";
-import {Button} from "../../../../../eco-market-front/components/Button/Button";
-import {CartPreview} from "../../../../../eco-market-front/components/CartPreview/CartPreview";
-import {OrderPreview} from "../../../../../eco-market-front/components/OrderPreview/OrderPreview";
+import {Button} from "../../../../components/Button/Button";
+import {CartPreview} from "../../../../components/CartPreview/CartPreview";
+import {OrderPreview} from "../../../../components/OrderPreview/OrderPreview";
 
 function Page() {
 
