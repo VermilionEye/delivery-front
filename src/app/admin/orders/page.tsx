@@ -1,6 +1,6 @@
 'use client'
 import styles from "../../../styles/users.module.css";
-import {H} from "../../../../../eco-market-front/components/Htag/Htag";
+import {H} from "../../../../components/Htag/Htag";
 import {withAdminLayout} from "../../../layout/AdminLayout/AdminLayout";
 import {useGetAllOrdersQuery} from "../../../store/api/admin.api";
 

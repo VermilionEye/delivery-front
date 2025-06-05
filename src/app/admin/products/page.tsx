@@ -1,7 +1,7 @@
 'use client'
 import {withAdminLayout} from "../../../layout/AdminLayout/AdminLayout";
 import styles from "../../../styles/users.module.css";
-import {H} from "../../../../../eco-market-front/components/Htag/Htag";
+import {H} from "../../../../components/Htag/Htag";
 import {useGetProductsQuery} from "../../../store/api/api";
 
 

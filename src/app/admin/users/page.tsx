@@ -2,10 +2,10 @@
 
 import {withAdminLayout} from "../../../layout/AdminLayout/AdminLayout";
 import styles from "../../../styles/users.module.css"
-import {H} from "../../../../../eco-market-front/components/Htag/Htag";
+import {H} from "../../../../components/Htag/Htag";
 import {useGetAllUsersQuery} from "../../../store/api/admin.api";
-import {Button} from "../../../../../eco-market-front/components/Button/Button";
-import {Input} from "../../../../../eco-market-front/components/Input/Input";
+import {Button} from "../../../../components/Button/Button";
+import {Input} from "../../../../components/Input/Input";
 import {token, User} from "../../../store/api/user.api";
 import {useEffect, useState} from "react";
 
