@@ -1,11 +1,11 @@
 import {AdminSidebarProps} from "./AdminSidebar.props";
 import cn from "classnames";
 import styles from "./AdminSidebar.module.css";
-import {Logo} from "../../../delivery-front/components/Logo/Logo";
-import {H} from "../../../delivery-front/components/Htag/Htag";
+import {Logo} from "../../components/Logo/Logo";
+import {H} from "../../components/Htag/Htag";
 import Link from "next/link";
-import {Button} from "../../../delivery-front/components/Button/Button";
-import {AccountSidebarButton} from "../../../delivery-front/components/AccountSidebarButton/AccountSidebarButton";
+import {Button} from "../../components/Button/Button";
+import {AccountSidebarButton} from "../../components/AccountSidebarButton/AccountSidebarButton";
 
 export const AdminSidebar = ({
                            className,

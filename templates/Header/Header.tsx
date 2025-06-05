@@ -2,16 +2,16 @@
 import {HeaderProps} from "./Header.props";
 import cn from "classnames";
 import styles from "./Header.module.css";
-import {Logo} from "../../../../delivery-front/components/Logo/Logo";
-import {H} from "../../../../delivery-front/components/Htag/Htag";
-import {Button} from "../../../../delivery-front/components/Button/Button";
+import {Logo} from "../../../components/Logo/Logo";
+import {H} from "../../../components/Htag/Htag";
+import {Button} from "../../../components/Button/Button";
 import {useEffect, useState} from "react";
 import Link from "next/link";
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../../src/store/store";
-import {Input} from "../../../delivery-front/components/Input/Input";
+import {Input} from "../../../components/Input/Input";
 import {useGetProductsByCategoryQuery, useGetProductsByTitleQuery} from "../../src/store/api/product.api";
-import {CardRow} from "../../../delivery-front/components/CardRow/CardRow";
+import {CardRow} from "../../../components/CardRow/CardRow";
 import {token, useGetCurrentUserQuery} from "../../src/store/api/user.api";
 
 const Products = [

@@ -10,9 +10,9 @@ import {actions as CartAction, actions as CartActions} from "../../../store/slic
 import {actions as ProductAction, actions as ProductActions} from "../../../store/slices/products.slice";
 import {useGetProductsCartQuery} from "../../../store/api/product.api";
 import Link from "next/link";
-import {Button} from "../../../../../delivery-front/components/Button/Button";
+import {Button} from "../../../../components/Button/Button";
 import styles from "../../../styles/product.module.css"
-import {H} from "../../../../../delivery-front/components/Htag/Htag";
+import {H} from "../../../../components/Htag/Htag";
 import cn from "classnames";
 
 const Page = ({params}: { params: { id: number } }) => {

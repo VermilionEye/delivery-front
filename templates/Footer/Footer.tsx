@@ -1,8 +1,8 @@
 import {FooterProps} from "./Footer.props";
 import cn from "classnames";
 import styles from "./Footer.module.css";
-import {Logo} from "../../../delivery-front/components/Logo/Logo";
-import {H} from "../../../delivery-front/components/Htag/Htag";
+import {Logo} from "../../components/Logo/Logo";
+import {H} from "../../components/Htag/Htag";
 
 export const Footer = ({
                            className,

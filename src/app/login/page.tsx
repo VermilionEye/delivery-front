@@ -1,9 +1,9 @@
 'use client'
 
 import styles from "../../styles/login.module.css"
-import {Input} from "../../../../delivery-front/components/Input/Input";
-import {H} from "../../../../delivery-front/components/Htag/Htag";
-import {Button} from "../../../../delivery-front/components/Button/Button";
+import {Input} from "../../../components/Input/Input";
+import {H} from "../../../components/Htag/Htag";
+import {Button} from "../../../components/Button/Button";
 import Link from "next/link";
 import {useEffect, useState} from "react";
 
